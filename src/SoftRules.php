@@ -14,12 +14,12 @@ final class SoftRules
         return Blade::render("<x-softrules-form product='{$product}' xml='{$xml}'/>");
     }
 
-    public function renderXml(string|DOMDocument $xml): string
+    public function renderXml(string|DOMDocument $xml, bool $addScripts = false): string
     {
         $form = is_string($xml)
             ? SoftRulesForm::fromXmlString($xml)
             : SoftRulesForm::fromDomDocument($xml);
 
-        return (string) new HtmlRenderer($form);
+        return (string) new HtmlRenderer($form, $addScripts);
     }
 }

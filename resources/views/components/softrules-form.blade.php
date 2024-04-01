@@ -4,7 +4,7 @@
           style="padding: 15px;">
         @csrf
 
-        {{ \SoftRules\Laravel\Facades\SoftRules::renderXml($xml) }}
+        {{ \SoftRules\Laravel\Facades\SoftRules::renderXml($xml, true) }}
     </form>
 
     <script>
