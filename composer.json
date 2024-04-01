@@ -1,24 +1,34 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "softrules/laravel",
+    "description": "Laravel implementatie van de SoftRules Userinterfaces",
     "keywords": [
-        ":vendor_name",
         "laravel",
-        ":package_slug"
+        "SoftRules Laravel"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
-    "license": "MIT",
+    "homepage": "https://github.com/my-tp-vergelijken/softrules-laravel",
+    "license": "proprietary",
+    "type": "library",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
-            "role": "Developer"
+            "name": "SoftRules",
+            "email": "info@softrules.com",
+            "homepage": "https://www.softrules.com/",
+            "role": "Organisation"
+        },
+        {
+            "name": "My TP - a Blinqx company",
+            "email": "info@my-tp.net",
+            "homepage": "https://my-tp.net/",
+            "role": "Organisation"
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.1",
+        "ext-dom": "*",
+        "ext-simplexml": "*",
         "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "laravel/framework": "^10.0|^11.0",
+        "softrules/php": "dev-wip"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -28,55 +38,56 @@
         "pestphp/pest": "^2.34",
         "pestphp/pest-plugin-arch": "^2.7",
         "pestphp/pest-plugin-laravel": "^2.3",
+        "rector/rector": "^1.0",
         "phpstan/extension-installer": "^1.3",
         "phpstan/phpstan-deprecation-rules": "^1.1",
         "phpstan/phpstan-phpunit": "^1.3",
-        "spatie/laravel-ray": "^1.35"
+        "roave/security-advisories": "dev-latest"
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "SoftRules\\Laravel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "SoftRules\\Laravel\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
     "scripts": {
-        "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-skeleton --ansi",
-        "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "build": [
-            "@composer run prepare",
-            "@php vendor/bin/testbench workbench:build --ansi"
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "start": [
-            "Composer\\Config::disableProcessTimeout",
-            "@composer run build",
-            "@php vendor/bin/testbench serve"
-        ],
-        "analyse": "vendor/bin/phpstan analyse",
+        "phpstan": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "rector": "vendor/bin/rector process"
     },
     "config": {
+        "platform": {
+            "php": "8.1.0"
+        },
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:SoftRules/PHP.git"
+        }
+    ],
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "SoftRules\\Laravel\\SoftRulesServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "SoftRules": "SoftRules\\Laravel\\SoftRules"
             }
         }
     },

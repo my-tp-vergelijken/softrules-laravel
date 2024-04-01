@@ -12,9 +12,8 @@
     failOnRisky="true"
     failOnEmptyTestSuite="true"
     beStrictAboutOutputDuringTests="true"
-    cacheDirectory=".phpunit.cache"
     backupStaticProperties="false"
->
+    cacheDirectory=".cache/phpunit">
     <testsuites>
         <testsuite name="VendorName Test Suite">
             <directory>tests</directory>

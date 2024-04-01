@@ -1,11 +1,30 @@
-.idea
-.phpunit.cache
 build
+.cache
 composer.lock
 coverage
 docs
-phpunit.xml
 phpstan.neon
-testbench.yaml
-vendor
-node_modules
+
+# Dependencies
+auth.json
+/vendor
+/node_modules
+
+# Environment
+.env
+.env.*
+!.env.example
+!.env.ci
+
+# MacOS
+.DS_STORE
+
+# IDE
+.phpstorm.meta.php
+_ide_helper_models.php
+_ide_helper.php
+_ide_macros.php
+nbproject/
+nbproject/private/
+.idea/*
+!/.idea/codeStyles
