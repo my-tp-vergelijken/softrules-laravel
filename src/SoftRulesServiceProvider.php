@@ -51,7 +51,7 @@ final class SoftRulesServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('SoftRules Laravel')
+            ->name('laravel-softrules')
             ->hasConfigFile('softrules')
             ->hasRoute('web');
     }
