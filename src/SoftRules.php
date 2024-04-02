@@ -15,6 +15,7 @@ final class SoftRules
         return BaseForm::make($product)
             ->withInitialXml($xml)
             ->withCsrfProtection(csrf_field())
+            ->setJavascriptPath(url('vendor/softrules/js'))
             ->setFirstPageRoute(route('softrules.first-page'))
             ->setNextPageRoute(route('softrules.next-page'))
             ->setPreviousPageRoute(route('softrules.previous-page'))
