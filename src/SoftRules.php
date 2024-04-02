@@ -5,7 +5,7 @@ namespace SoftRules\Laravel;
 use DOMDocument;
 use Illuminate\Support\Facades\Blade;
 use SoftRules\PHP\HtmlRenderer;
-use SoftRules\PHP\UI\SoftRulesForm;
+use SoftRules\PHP\UI\SoftRulesFormData;
 
 final class SoftRules
 {
@@ -17,8 +17,8 @@ final class SoftRules
     public function renderXml(string|DOMDocument $xml, bool $addScripts = false): string
     {
         $form = is_string($xml)
-            ? SoftRulesForm::fromXmlString($xml)
-            : SoftRulesForm::fromDomDocument($xml);
+            ? SoftRulesFormData::fromXmlString($xml)
+            : SoftRulesFormData::fromDomDocument($xml);
 
         return (string) new HtmlRenderer($form, $addScripts);
     }

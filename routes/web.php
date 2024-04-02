@@ -7,6 +7,9 @@ use SoftRules\Laravel\Controllers\RenderXmlController;
 Route::get('softrules/render-xml', RenderXmlController::class)
     ->name('softrules.render-xml');
 
+Route::get('softrules/first-page', [NavigationController::class, 'firstPage'])
+    ->name('softrules.first-page');
+
 Route::get('softrules/update-user-interface', [NavigationController::class, 'updateUserInterface'])
     ->name('softrules.update-user-interface');
 
