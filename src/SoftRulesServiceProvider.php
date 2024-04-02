@@ -34,6 +34,15 @@ final class SoftRulesServiceProvider extends PackageServiceProvider
         $this->app->alias(ClientContract::class, BaseClient::class);
     }
 
+    public function boot(): void
+    {
+        parent::boot();
+
+        $this->publishes([
+            $this->package->basePath('/../vendor/softrules/php/public/js') => public_path("public/{$this->package->shortName()}/js"),
+        ], "{$this->package->shortName()}-assets");
+    }
+
     public function configurePackage(Package $package): void
     {
         /*
