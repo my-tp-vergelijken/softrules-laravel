@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Route;
 use SoftRules\Laravel\Controllers\NavigationController;
 use SoftRules\Laravel\Controllers\RenderXmlController;
 
-Route::get('softrules/render-xml', RenderXmlController::class)
+Route::post('softrules/render-xml', RenderXmlController::class)
     ->name('softrules.render-xml');
 
-Route::get('softrules/first-page', [NavigationController::class, 'firstPage'])
+Route::post('softrules/first-page', [NavigationController::class, 'firstPage'])
     ->name('softrules.first-page');
 
-Route::get('softrules/update-user-interface', [NavigationController::class, 'updateUserInterface'])
+Route::post('softrules/update-user-interface', [NavigationController::class, 'updateUserInterface'])
     ->name('softrules.update-user-interface');
 
-Route::get('softrules/previous-page', [NavigationController::class, 'previousPage'])
+Route::post('softrules/previous-page', [NavigationController::class, 'previousPage'])
     ->name('softrules.previous-page');
 
-Route::get('softrules/next-page', [NavigationController::class, 'nextPage'])
+Route::post('softrules/next-page', [NavigationController::class, 'nextPage'])
     ->name('softrules.next-page');
