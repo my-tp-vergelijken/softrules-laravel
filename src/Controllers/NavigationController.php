@@ -16,6 +16,15 @@ final class NavigationController
         return response($xmlString)->header('Content-Type', 'application/xml');
     }
 
+    public function firstPage(NavigationRequest $request): Response
+    {
+        $xml = $request->client()->firstPage($request->xml());
+
+        $xmlString = $xml->saveHTML($xml->documentElement);
+
+        return response($xmlString)->header('Content-Type', 'application/xml');
+    }
+
     public function nextPage(NavigationRequest $request): Response
     {
         $xml = $request->client()->nextPage($request->id(), $request->xml());
