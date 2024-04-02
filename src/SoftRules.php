@@ -3,13 +3,14 @@
 namespace SoftRules\Laravel;
 
 use DOMDocument;
+use Illuminate\Support\HtmlString;
 use SoftRules\PHP\HtmlRenderer;
 use SoftRules\PHP\SoftRulesForm as BaseForm;
 use SoftRules\PHP\UI\SoftRulesFormData;
 
 final class SoftRules
 {
-    public function form(string $product, string $xml): string
+    public function form(string $product, string $xml): HtmlString
     {
         return BaseForm::make($product)
             ->withInitialXml($xml)
