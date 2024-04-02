@@ -3,9 +3,7 @@
 namespace SoftRules\Laravel;
 
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Blade;
 use SoftRules\Laravel\Services\SoftRulesClient;
-use SoftRules\Laravel\View\Components\SoftRulesForm;
 use SoftRules\PHP\Contracts\ClientContract;
 use SoftRules\PHP\Services\SoftRulesClient as BaseClient;
 use Spatie\LaravelPackageTools\Package;
@@ -36,13 +34,6 @@ final class SoftRulesServiceProvider extends PackageServiceProvider
         $this->app->alias(ClientContract::class, BaseClient::class);
     }
 
-    public function boot(): void
-    {
-        parent::boot();
-
-        Blade::component('softrules-form', SoftRulesForm::class);
-    }
-
     public function configurePackage(Package $package): void
     {
         /*
@@ -53,7 +44,6 @@ final class SoftRulesServiceProvider extends PackageServiceProvider
         $package
             ->name('SoftRules Laravel')
             ->hasConfigFile('softrules')
-            ->hasViews()
             ->hasRoute('web');
     }
 }

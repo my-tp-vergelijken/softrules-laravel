@@ -3,23 +3,31 @@
 namespace SoftRules\Laravel;
 
 use DOMDocument;
-use Illuminate\Support\Facades\Blade;
 use SoftRules\PHP\HtmlRenderer;
+use SoftRules\PHP\SoftRulesForm as BaseForm;
 use SoftRules\PHP\UI\SoftRulesFormData;
 
 final class SoftRules
 {
     public function form(string $product, string $xml): string
     {
-        return Blade::render("<x-softrules-form product='{$product}' xml='{$xml}'/>");
+        return BaseForm::make($product)
+            ->withInitialXml($xml)
+            ->withCsrfProtection(csrf_field())
+            ->setFirstPageRoute(route('softrules.first-page'))
+            ->setNextPageRoute(route('softrules.next-page'))
+            ->setPreviousPageRoute(route('softrules.previous-page'))
+            ->setRenderXmlRoute(route('softrules.render-xml'))
+            ->setUpdateUserInterfaceRoute(route('softrules.update-user-interface'))
+            ->render();
     }
 
-    public function renderXml(string|DOMDocument $xml, bool $addScripts = false): string
+    public function renderXml(string|DOMDocument $xml): string
     {
         $form = is_string($xml)
             ? SoftRulesFormData::fromXmlString($xml)
             : SoftRulesFormData::fromDomDocument($xml);
 
-        return (string) new HtmlRenderer($form, $addScripts);
+        return (string) new HtmlRenderer($form);
     }
 }
