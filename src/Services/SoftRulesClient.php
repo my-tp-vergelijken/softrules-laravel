@@ -37,7 +37,6 @@ final class SoftRulesClient extends BaseClient
     protected function createSession(): string
     {
         $cacheKey = "softrules-laravel:{$this->cacheIdentifier()}:session-id";
-        dd($cacheKey);
 
         $sessionId = cache()->get($cacheKey);
 
