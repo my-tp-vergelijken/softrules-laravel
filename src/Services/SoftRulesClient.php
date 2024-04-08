@@ -2,6 +2,7 @@
 
 namespace SoftRules\Laravel\Services;
 
+use GuzzleHttp\Psr7\Uri;
 use RuntimeException;
 use SoftRules\PHP\Services\SoftRulesClient as BaseClient;
 
@@ -24,9 +25,19 @@ final class SoftRulesClient extends BaseClient
         );
     }
 
+    public function cacheIdentifier(): string
+    {
+        $uri = new Uri($this->uri);
+
+        $uriIdentifier = str($uri->getHost() . $uri->getPath())->ascii()->trim('/');
+
+        return md5("{$uriIdentifier}-{$this->product}", true);
+    }
+
     protected function createSession(): string
     {
-        $cacheKey = 'softrules-laravel:session-id';
+        $cacheKey = "softrules-laravel:{$this->cacheIdentifier()}:session-id";
+        dd($cacheKey);
 
         $sessionId = cache()->get($cacheKey);
 
