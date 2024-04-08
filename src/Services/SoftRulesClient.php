@@ -31,7 +31,7 @@ final class SoftRulesClient extends BaseClient
 
         $uriIdentifier = str($uri->getHost() . $uri->getPath())->ascii()->trim('/');
 
-        return md5("{$uriIdentifier}-{$this->product}", true);
+        return md5("{$uriIdentifier}-{$this->username}-{$this->product}", true);
     }
 
     protected function createSession(): string
@@ -46,7 +46,9 @@ final class SoftRulesClient extends BaseClient
 
         $sessionId = parent::createSession();
 
-        cache()->put($cacheKey, $sessionId, now()->addMinutes(10));
+        if ($sessionId) {
+            cache()->put($cacheKey, $sessionId, now()->addMinutes(10));
+        }
 
         return $sessionId;
     }
