@@ -16,6 +16,7 @@ final class SoftRules
             ->withInitialXml($xml)
             ->withCsrfProtection(csrf_field())
             ->setJavascriptPath(url('vendor/softrules/js'))
+            ->setCSSPath(url('vendor/softrules/css'))
             ->setFirstPageRoute(route('softrules.first-page'))
             ->setNextPageRoute(route('softrules.next-page'))
             ->setPreviousPageRoute(route('softrules.previous-page'))
