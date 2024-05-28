@@ -78,7 +78,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:SoftRules/PHP.git"
+            "url": "https://github.com/SoftRules/PHP.git"
         }
     ],
     "extra": {
