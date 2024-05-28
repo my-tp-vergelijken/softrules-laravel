@@ -22,6 +22,7 @@ final class SoftRules
             ->setPreviousPageRoute(route('softrules.previous-page'))
             ->setRenderXmlRoute(route('softrules.render-xml'))
             ->setUpdateUserInterfaceRoute(route('softrules.update-user-interface'))
+            ->setScriptActionsRoute(route('softrules.script-actions'))
             ->render();
     }
 

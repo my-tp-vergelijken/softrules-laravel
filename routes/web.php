@@ -3,9 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use SoftRules\Laravel\Controllers\NavigationController;
 use SoftRules\Laravel\Controllers\RenderXmlController;
+use SoftRules\Laravel\Controllers\ScriptActionsController;
 
 Route::post('softrules/render-xml', RenderXmlController::class)
     ->name('softrules.render-xml');
+
+Route::post('softrules/script-actions', ScriptActionsController::class)
+    ->name('softrules.script-actions');
 
 Route::post('softrules/first-page', [NavigationController::class, 'firstPage'])
     ->name('softrules.first-page');
