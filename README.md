@@ -163,8 +163,8 @@ Button::setStyle(new ButtonComponentStyle(
 You can use CSS variables to customise the global colors of the SoftRules form.
 
 ```css
-    #softrules-form {
-        --sr-primary-color: var(--primary-color);
-        --sr-secondary-color: var(--secondary-color);
-    }
+#softrules-form {
+    --sr-primary-color: var(--primary-color);
+    --sr-secondary-color: var(--secondary-color);
+}
 ```
