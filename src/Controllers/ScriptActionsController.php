@@ -16,9 +16,14 @@ final class ScriptActionsController
                 'required',
                 'string',
             ],
+            'id' => [
+                'sometimes',
+                'nullable',
+                'string',
+            ],
         ]);
 
-        $actions = new EvaluateExpressions(SoftRulesFormData::fromXmlString($validated['xml']));
+        $actions = new EvaluateExpressions(SoftRulesFormData::fromXmlString($validated['xml']), data_get($validated, 'id'));
 
         return response()->json($actions->actionList->toArray());
     }
