@@ -60,7 +60,7 @@ return [
 ```
 
 ### Keep the assets up-to-date
-Add the following to the composer scripts:
+Add the following to the composer scripts `post-install-cmd` and `post-update-cmd` to keep the assets up-to-date after running `composer install` or `composer update`:
 
 ```
 "@php artisan vendor:publish --force --tag=softrules-assets --ansi"
@@ -71,6 +71,10 @@ For example:
 ```
 "scripts": {
     "post-install-cmd": [
+        //... default scripts
+        "@php artisan vendor:publish --force --tag=softrules-assets --ansi"
+    ],
+    "post-update-cmd": [
         //... default scripts
         "@php artisan vendor:publish --force --tag=softrules-assets --ansi"
     ]
