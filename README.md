@@ -9,22 +9,6 @@ You can install the package via composer:
 composer require softrules/laravel
 ```
 
-### Composer repositories
-Installation via composer may not work until you add the following repositories to your composer.json file:
-
-```
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/my-tp-vergelijken/softrules-laravel.git"
-    },
-    {
-        "type": "vcs",
-        "url": "git@github.com:SoftRules/PHP.git"
-    }
-],
-```
-
 ### Publish the assets and config
 To publish the assets and config file run the following command:
 
