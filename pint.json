@@ -29,6 +29,10 @@
             "allow_single_line_anonymous_functions": false
         },
         "function_typehint_space": false,
+        "new_with_parentheses": {
+            "anonymous_class": false,
+            "named_class": true
+        },
         "unary_operator_spaces": false,
         "constant_case": false,
         "single_space_around_construct": false,
