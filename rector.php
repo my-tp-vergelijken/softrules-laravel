@@ -71,4 +71,4 @@ return RectorConfig::configure()
         rectorPreset: true,
     )
     ->withMemoryLimit('3G')
-    ->withPhpSets(php81: true);
+    ->withPhpSets(php82: true);
