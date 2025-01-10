@@ -31,6 +31,7 @@ final class SoftRulesClient extends BaseClient
 
         $uriIdentifier = str($uri->getHost() . $uri->getPath())->ascii()->trim('/');
 
+        // @phpstan-ignore disallowed.function
         return md5("{$uriIdentifier}-{$this->username}-{$this->product}", true);
     }
 
