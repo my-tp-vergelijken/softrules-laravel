@@ -28,7 +28,7 @@
         "ext-simplexml": "*",
         "spatie/laravel-package-tools": "^1.16",
         "laravel/framework": "^10.48.23|^11.44|^12.0",
-        "softrules/php": "^0.2.13"
+        "softrules/php": "^0.3.0"
     },
     "require-dev": {
         "hihaho/phpstan-rules": "^2.1",

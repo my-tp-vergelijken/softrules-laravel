@@ -37,10 +37,8 @@
         "unary_operator_spaces": false,
         "constant_case": false,
         "single_space_around_construct": false,
-        "statement_indentation": false,
         "line_ending": false,
         "braces": false,
-        "whitespace_after_comma_in_array": false,
         "phpdoc_separation": false,
         "phpdoc_align": false,
         "backtick_to_shell_exec": true
